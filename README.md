@@ -28,3 +28,11 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+- Error messages related to Tailwind custom code (but tailwind works) e.g., in index.css @tailwind or @apply etc, install plugin TailwindCSS Intellisense, on vs code change language fr
+Zom CSS to TailwindCSS
+- SIMPLE Browser
+https://dev.to/equiman/vscode-browser-inside-2b06#:~:text=Open%20the%20command%20palette%20with%20ctrl%2Bshift%2Bp%20and%20search,code%20and%20the%20result%20at%20the%20same%20time.
+
+- More Prettier Setup
+https://tailwindcss.com/docs/editor-setup

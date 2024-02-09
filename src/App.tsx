@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import IPDetails from "./components/ip-detail/ip-detail.component";
+import PatternBackgroundMobile from "../src/assets/pattern-bg-mobile.png";
+import PatternBackgroundDesktop from "../src/assets/pattern-bg-desktop.png";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative h-full">
+      <div className="m-auto grid h-full w-[375px] grid-rows-[auto_1fr] md:w-auto">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcSet={PatternBackgroundDesktop}
+          />
+          <img
+            src={PatternBackgroundMobile}
+            alt="background pattern md:m"
+            className="md:h-[280px] mx-auto"
+          />
+        </picture>
+
+        <div className="h-full bg-gray-300">1</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="absolute left-1/2 top-0  grid -translate-x-1/2 transform">
+        <IPDetails />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
