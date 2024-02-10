@@ -7,10 +7,7 @@ interface IPInfoProps {
 }
 
 const IPDetails = () => {
-  const IPInfo: FunctionComponent<IPInfoProps> = ({
-    label,
-    info,
-  }) => {
+  const IPInfo: FunctionComponent<IPInfoProps> = ({ label, info }) => {
     return (
       <div className="h-full">
         <div>
@@ -28,7 +25,6 @@ const IPDetails = () => {
   const Divider = () => {
     return <div className="ml-4 mr-4 h-14 border-l border-darkGray"></div>;
   };
-  /** @todo Handle also on key press enter */
   const IPSearchField = () => {
     return (
       <div className="grid grid-cols-[1fr_auto] pb-6">
@@ -43,7 +39,6 @@ const IPDetails = () => {
       </div>
     );
   };
-  //md:grid-flow-col
   return (
     <section>
       <p className="pb-8 pt-8 text-center font-rubik text-2xl font-bold text-white">
@@ -53,12 +48,9 @@ const IPDetails = () => {
       <div className="grid w-[320px] items-center justify-center gap-y-4 rounded-2xl bg-white p-4 shadow-lg md:w-[768px] md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]  md:p-8">
         <IPInfo label="ip address" info="192.212.174.101" />
         <Divider />
-        <IPInfo
-          label="location"
-          info="Brooklyn, NY 100001"
-        />
+        <IPInfo label="location" info="Brooklyn, NY 100001" />
         <Divider />
-        <IPInfo label="Timezone" info="UTC -5:00"  />
+        <IPInfo label="Timezone" info="UTC -5:00" />
         <Divider />
         <IPInfo label="ISP" info="Space X Starlink" />
       </div>

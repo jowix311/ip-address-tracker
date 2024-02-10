@@ -1,6 +1,7 @@
 import IPDetails from "./components/ip-detail/ip-detail.component";
 import PatternBackgroundMobile from "../src/assets/pattern-bg-mobile.png";
 import PatternBackgroundDesktop from "../src/assets/pattern-bg-desktop.png";
+import Map from "./components/map/map.component";
 
 function App() {
   return (
@@ -13,12 +14,14 @@ function App() {
           />
           <img
             src={PatternBackgroundMobile}
-            alt="background pattern md:m"
-            className="md:h-[280px] mx-auto"
+            alt="background pattern"
+            className="mx-auto md:h-[280px]"
           />
         </picture>
 
-        <div className="h-full bg-gray-300">1</div>
+        <div className="relative z-0">
+          <Map />
+        </div>
       </div>
       <div className="absolute left-1/2 top-0  grid -translate-x-1/2 transform">
         <IPDetails />
