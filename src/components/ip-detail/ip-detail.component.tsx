@@ -25,6 +25,7 @@ const IPDetails = () => {
   const Divider = () => {
     return <div className="ml-4 mr-4 h-14 border-l border-darkGray"></div>;
   };
+  //TODO check if valid IP address
   const IPSearchField = () => {
     return (
       <div className="grid grid-cols-[1fr_auto] pb-6">
@@ -39,6 +40,7 @@ const IPDetails = () => {
       </div>
     );
   };
+
   return (
     <section>
       <p className="pb-8 pt-8 text-center font-rubik text-2xl font-bold text-white">

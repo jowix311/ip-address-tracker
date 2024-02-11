@@ -40,3 +40,7 @@ export default {
 - https://medium.com/@timndichu/getting-started-with-leaflet-js-and-react-rendering-a-simple-map-ef9ee0498202
 - need to install npm i -D @types/leaflet to fix react leaflet errors and specify the type const position: [number, number]
 - For additional reference https://www.youtube.com/watch?v=jD6813wGdBA @9:20 for styling issues
+- Tutorial for React Query - https://www.youtube.com/watch?v=8K1N3fE-cDs
+- https://medium.com/how-to-react/how-to-get-user-ip-address-in-react-js-73eb295720d0
+- https://www.youtube.com/watch?v=PmPkAAu_QF4
+- using fetch and useQUery https://rapidapi.com/guides/call-apis-react-query
