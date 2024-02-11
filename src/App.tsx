@@ -2,12 +2,13 @@ import IPDetails from "./components/ip-detail/ip-detail.component";
 import PatternBackgroundMobile from "../src/assets/pattern-bg-mobile.png";
 import PatternBackgroundDesktop from "../src/assets/pattern-bg-desktop.png";
 import Map from "./components/map/map.component";
-import useGeoLocation from "./hooks/geoLocation.hook";
+// import useGeoLocation from "./hooks/geoLocation.hook";
 
 function App() {
-  const { data } = useGeoLocation();
+  //TODO uncomment useLocation when form is okay, this is to save limited request per month
+  // const { data } = useGeoLocation();
   //TODO delete console.log
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <div className="relative h-full">
@@ -23,7 +24,6 @@ function App() {
             className="mx-auto md:h-[280px]"
           />
         </picture>
-
         <div className="relative z-0">
           <Map />
         </div>

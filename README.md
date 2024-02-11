@@ -44,3 +44,4 @@ export default {
 - https://medium.com/how-to-react/how-to-get-user-ip-address-in-react-js-73eb295720d0
 - https://www.youtube.com/watch?v=PmPkAAu_QF4
 - using fetch and useQUery https://rapidapi.com/guides/call-apis-react-query
+- use react hook form with ZOD https://dev.to/majiedo/using-zod-with-react-hook-form-using-typescript-1mgk
