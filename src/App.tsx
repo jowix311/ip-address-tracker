@@ -2,14 +2,8 @@ import IPDetails from "./components/ip-detail/ip-detail.component";
 import PatternBackgroundMobile from "../src/assets/pattern-bg-mobile.png";
 import PatternBackgroundDesktop from "../src/assets/pattern-bg-desktop.png";
 import Map from "./components/map/map.component";
-// import useGeoLocation from "./hooks/geoLocation.hook";
 
 function App() {
-  //TODO uncomment useLocation when form is okay, this is to save limited request per month
-  // const { data } = useGeoLocation();
-  //TODO delete console.log
-  // console.log("data", data);
-
   return (
     <div className="relative h-full">
       <div className="m-auto grid h-full w-[375px] grid-rows-[auto_1fr] md:w-auto">

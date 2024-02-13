@@ -40,8 +40,18 @@ export default {
 - https://medium.com/@timndichu/getting-started-with-leaflet-js-and-react-rendering-a-simple-map-ef9ee0498202
 - need to install npm i -D @types/leaflet to fix react leaflet errors and specify the type const position: [number, number]
 - For additional reference https://www.youtube.com/watch?v=jD6813wGdBA @9:20 for styling issues
-- Tutorial for React Query - https://www.youtube.com/watch?v=8K1N3fE-cDs
+- Tutorial for React Query - https://www.youtube.com/watch?v=8K1N3fE-cDs OR https://www.youtube.com/watch?v=r8Dg0KVnfMA @11:05 devtools
 - https://medium.com/how-to-react/how-to-get-user-ip-address-in-react-js-73eb295720d0
 - https://www.youtube.com/watch?v=PmPkAAu_QF4
 - using fetch and useQUery https://rapidapi.com/guides/call-apis-react-query
 - use react hook form with ZOD https://dev.to/majiedo/using-zod-with-react-hook-form-using-typescript-1mgk
+- when a variable is undefined but you destruct - https://stackoverflow.com/questions/45210111/destructuring-nullable-objects
+- learned how to handle destructuring when a variable is undefined
+
+```js
+const {
+  ip_address,
+  gmt_offset,
+  connection: { isp_name } = { isp_name: "" }, // provide default value for isp_name when data is undefined
+} = data || {}; //default to empty object when data is undefined
+```

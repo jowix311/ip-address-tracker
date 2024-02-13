@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import IconArrow from "../../assets/icon-arrow.svg";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 //step 1 - create schema for zod
 const SearchFormSchema = z.object({
@@ -14,6 +16,9 @@ const SearchFormSchema = z.object({
 type SearchFormSchemaType = z.infer<typeof SearchFormSchema>;
 
 const SearchForm = () => {
+  const [inputIPAddress, setInputIPAddress] = useState("");
+  const apiQuery = `https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${inputIPAddress || ""}`;
+
   const {
     register,
     handleSubmit,
@@ -24,8 +29,31 @@ const SearchForm = () => {
   });
 
   const onFormSubmit = (data: SearchFormSchemaType) => {
-    console.log(data);
+    setInputIPAddress(data.ipAddress);
   };
+
+  //AJAX call using react-query
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["ipAddress"],
+    queryFn: async () => {
+      //TODO remove console.log
+      console.log("INSIDE apiQUERY inside", apiQuery);
+      const response = await fetch(apiQuery);
+      return response.json();
+    },
+  });
+
+  useEffect(() => {
+    refetch(); //we just want to refetch whenever the input changes via form submit, in this the data returned by useQuery will be the updated one not the cache
+  }, [inputIPAddress, refetch]);
+  //TODO delete code below
+  useEffect(() => {
+    console.log("FIRST RENDER");
+  }, []);
+
+  //TODO remove console.log
+  console.log("data", data);
+  console.log("isLoading", isLoading);
 
   return (
     <div className="pb-6">
@@ -35,7 +63,7 @@ const SearchForm = () => {
             type="text"
             className={`font-bas e block w-full  rounded-bl-xl rounded-tl-xl border p-4  font-rubik  ${errors.ipAddress ? "border-red-400 focus:outline-red-400 active:border-red-400" : "border-black"}`}
             placeholder="Enter IP"
-            defaultValue=""
+            defaultValue={inputIPAddress}
             {...register("ipAddress")}
           />
           <button
