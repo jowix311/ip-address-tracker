@@ -51,6 +51,8 @@ export default {
   - https://www.youtube.com/watch?v=I2aM7YcOXDY
   - https://www.youtube.com/watch?v=93CR_yURoII
 - sample IP address: 192.212.174.101
+- Learned proper way of updating value using react hook form
+- https://jsonplaceholder.typicode.com/todos/1
 
 ```js
 const {
@@ -59,3 +61,11 @@ const {
   connection: { isp_name } = { isp_name: "" }, // provide default value for isp_name when data is undefined
 } = data || {}; //default to empty object when data is undefined
 ```
+
+    console.log(action.payload);
+        state.ipDetail.ipAddress = "192.168.1.1";
+        state.ipDetail.location = `Cebu City Philippines`;
+        state.ipDetail.latitude = 51.505;
+        state.ipDetail.longitude = -0.09;
+        state.ipDetail.ispProvider = "PLDTz";
+        state.ipDetail.timeOffset = "-8";

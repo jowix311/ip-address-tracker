@@ -8,34 +8,32 @@ interface IPInfoProps {
   isLoading: boolean;
 }
 
+const IPInfo: FunctionComponent<IPInfoProps> = ({ isLoading, label, info }) => {
+  return (
+    <div className="h-full">
+      <div>
+        <p className="text-center font-rubik text-xs font-medium uppercase tracking-wide text-darkGray md:text-left ">
+          {isLoading ? "--" : label}
+        </p>
+        <p className="break-words pt-1 text-center font-rubik text-xl font-bold md:text-left">
+          {isLoading ? "--" : info}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const Divider = () => {
+  return (
+    <div className="ml-4 mr-4 hidden h-14 border-l border-darkGray md:block"></div>
+  );
+};
+
 const IPDetails = () => {
   const {
     isLoading,
     ipDetail: { ipAddress, location, ispProvider, timeOffset },
   } = useAppSelector((state) => state.ipDetail);
-
-  const IPInfo: FunctionComponent<IPInfoProps> = ({
-    isLoading,
-    label,
-    info,
-  }) => {
-    return (
-      <div className="h-full">
-        <div>
-          <p className="text-center font-rubik text-xs font-medium uppercase tracking-wide text-darkGray md:text-left ">
-            {isLoading ? "--" : label}
-          </p>
-          <p className="break-words pt-1 text-center font-rubik text-xl font-bold md:text-left">
-            {isLoading ? "--" : info}
-          </p>
-        </div>
-      </div>
-    );
-  };
-
-  const Divider = () => {
-    return <div className="ml-4 mr-4 h-14 border-l border-darkGray"></div>;
-  };
 
   return (
     <section>

@@ -20,7 +20,7 @@ function App() {
           <img
             src={PatternBackgroundMobile}
             alt="background pattern"
-            className="mx-auto md:h-[280px]"
+            className="mx-auto md:h-[280px] lg:w-full"
           />
         </picture>
         <div className="relative z-0">

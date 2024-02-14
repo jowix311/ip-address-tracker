@@ -29,6 +29,7 @@ const initialState: IPDetailState = {
 export const fetchIPData = createAsyncThunk(
   "ip-detail/fetchIPData", //take note of "ip-detail/fetchIPData" where ip-detail is the slice name and fetchIPData is the action name
   async (ipAddress: string) => {
+    console.log(ipAddress);
     return axios
       .get(
         `https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${ipAddress}`,
@@ -36,8 +37,7 @@ export const fetchIPData = createAsyncThunk(
       .then((response) => response.data);
   },
 );
-//`https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${ipAddress}`
-// `https://jsonplaceholder.typicode.com/todos/1`
+
 export const IPDetailSlice = createSlice({
   name: "ip-detail",
   initialState,
@@ -56,33 +56,9 @@ export const IPDetailSlice = createSlice({
         state.ipDetail.longitude = action.payload.longitude;
         state.ipDetail.ispProvider = action.payload.connection.isp_name;
         state.ipDetail.timeOffset = action.payload.timezone.gmt_offset;
-        // state.ipDetail.ipAddress = "192.168.1.1";
-        // state.ipDetail.location = `Cebu City Philippines`;
-        // state.ipDetail.latitude = 51.505;
-        // state.ipDetail.longitude = -0.09;
-        // state.ipDetail.ispProvider = "PLDT";
-        // state.ipDetail.timeOffset = "-8";
       });
   },
 });
-
-// export const selectPlanSlice = createSlice({
-//   name: "select-plan",
-//   initialState,
-//   reducers: {
-//     setPlan: (state, action: PayloadAction<SelectPlan>) => {
-//       const { plan, isMonthly, price } = action.payload;
-//       state.plan = plan;
-//       state.isMonthly = isMonthly;
-//       state.price = price;
-//     },
-//     resetPlan: () => {
-//       return { ...initialState };
-//     },
-//   },
-// });
-
-// export const { setPlan, resetPlan } = selectPlanSlice.actions;
 
 export const selectIPDetail = (state: RootState) => state.ipDetail; //state.ipDetail is from the store.ts
 
