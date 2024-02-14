@@ -1,8 +1,11 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const Map = () => {
-  const position: [number, number] = [51.505, -0.09];
+interface MapProps {
+  position: [number, number];
+}
+
+const Map = ({ position }: MapProps) => {
   return (
     <>
       <MapContainer center={position} zoom={13} scrollWheelZoom={false}>

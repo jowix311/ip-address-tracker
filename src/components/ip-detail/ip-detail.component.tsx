@@ -1,21 +1,32 @@
 import { FunctionComponent } from "react";
-import SearchForm from "../search-form/search-form.componen";
+import SearchForm from "../search-form/search-form.component";
+import { useAppSelector } from "../../store/hooks";
 
 interface IPInfoProps {
   label: string;
   info: string;
+  isLoading: boolean;
 }
 
 const IPDetails = () => {
-  const IPInfo: FunctionComponent<IPInfoProps> = ({ label, info }) => {
+  const {
+    isLoading,
+    ipDetail: { ipAddress, location, ispProvider, timeOffset },
+  } = useAppSelector((state) => state.ipDetail);
+
+  const IPInfo: FunctionComponent<IPInfoProps> = ({
+    isLoading,
+    label,
+    info,
+  }) => {
     return (
       <div className="h-full">
         <div>
           <p className="text-center font-rubik text-xs font-medium uppercase tracking-wide text-darkGray md:text-left ">
-            {label}
+            {isLoading ? "--" : label}
           </p>
           <p className="break-words pt-1 text-center font-rubik text-xl font-bold md:text-left">
-            {info}
+            {isLoading ? "--" : info}
           </p>
         </div>
       </div>
@@ -33,13 +44,17 @@ const IPDetails = () => {
       </p>
       <SearchForm />
       <div className="grid w-[320px] items-center justify-center gap-y-4 rounded-2xl bg-white p-4 shadow-lg md:w-[768px] md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]  md:p-8">
-        <IPInfo label="ip address" info="192.212.174.101" />
+        <IPInfo isLoading={isLoading} label="ip address" info={ipAddress} />
         <Divider />
-        <IPInfo label="location" info="Brooklyn, NY 100001" />
+        <IPInfo isLoading={isLoading} label="location" info={location} />
         <Divider />
-        <IPInfo label="Timezone" info="UTC -5:00" />
+        <IPInfo
+          isLoading={isLoading}
+          label="Timezone"
+          info={`UTC ${timeOffset}`}
+        />
         <Divider />
-        <IPInfo label="ISP" info="Space X Starlink" />
+        <IPInfo isLoading={isLoading} label="ISP" info={ispProvider} />
       </div>
     </section>
   );
