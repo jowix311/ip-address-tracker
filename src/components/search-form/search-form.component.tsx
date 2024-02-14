@@ -26,6 +26,7 @@ const SearchForm = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<SearchFormSchemaType>({
     //step 3 - zod - used type created as Generic
@@ -33,12 +34,17 @@ const SearchForm = () => {
   });
 
   const onFormSubmit = (data: SearchFormSchemaType) => {
+    console.log("test testtest ", data);
     dispatch(fetchIPData(data.ipAddress));
   };
   //fetch data on first load
   useEffect(() => {
     dispatch(fetchIPData(""));
   }, [dispatch]);
+  //update value of the  ipAddress field
+  useEffect(() => {
+    setValue("ipAddress", ipAddress);
+  }, [ipAddress, setValue]);
 
   return (
     <div className="pb-6">
@@ -47,8 +53,7 @@ const SearchForm = () => {
           <input
             type="text"
             className={`font-bas e block w-full  rounded-bl-xl rounded-tl-xl border p-4  font-rubik  ${errors.ipAddress ? "border-red-400 focus:outline-red-400 active:border-red-400" : "border-black"}`}
-            placeholder="Enter IP"
-            defaultValue={ipAddress}
+            placeholder="Search for any IP address or domain"
             {...register("ipAddress")}
           />
           <button

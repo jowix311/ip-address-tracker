@@ -1,61 +1,90 @@
-# React + TypeScript + Vite
+# Frontend Mentor - IP address tracker solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Expanding the ESLint configuration
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
+
+### Screenshot
+
+For visual, please see Live Site URL shared below.
+
+### Links
+
+- Solution URL: [https://github.com/jowix311/ip-address-tracker](https://github.com/jowix311/ip-address-tracker)
+- Live Site URL: [https://ip-address-tracker-jowix311.netlify.app/](https://ip-address-tracker-jowix311.netlify.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Tailwind
+- React
+- CSS Grid and Flexbox
+- Mobile-first workflow
+- [Redux Toolkit](https://redux-toolkit.js.org/) - handle state and API calls
+- [Axios](https://axios-http.com/docs/intro) - to handle API calls
+- [LeafletJS](https://leafletjs.com/) - for the map
+- [Abstract Geo Location API](https://www.abstractapi.com/api/ip-geolocation-api) - for free geo location API with no credit card needed
+- [React Hook Form](https://react-hook-form.com/) - for handling forms
+- [Zod](https://zod.dev/) - for form validation
+
+**Note: These are just examples. Delete this note and replace the list above with your own choices**
+
+### What I learned
+
+- Learned to use Zod validation with React Hook Forms
+- Learned to use Redux Toolkit for API calls by using createAsyncThunk and extraReducers
+- Learned to use Axios with Redux Toolkit
+- Learned to use LeaftletJS with React-Leaflet, adding custom markers
+- Learned to use Geo Location API to get current IP and pass custom IP address
+- Learned to set input data in Rect Hook Form setValue
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+useEffect(() => {
+  setValue("ipAddress", ipAddress);
+}, [ipAddress, setValue]);
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Learned to use loading form Redux Toolkit
 
-- Error messages related to Tailwind custom code (but tailwind works) e.g., in index.css @tailwind or @apply etc, install plugin TailwindCSS Intellisense, on vs code change language fr
-  Zom CSS to TailwindCSS
-- SIMPLE Browser
-  https://dev.to/equiman/vscode-browser-inside-2b06#:~:text=Open%20the%20command%20palette%20with%20ctrl%2Bshift%2Bp%20and%20search,code%20and%20the%20result%20at%20the%20same%20time.
+### Continued development
 
-- More Prettier Setup to fix errors on "unknown tailwind"
-  https://tailwindcss.com/docs/editor-setup
+- Get familiar with React Hook Form and Zod combination
+- Get familiar with React Toolkit and AsyncThunk
+- Learn more about React best practice and optimization
 
-- https://medium.com/@timndichu/getting-started-with-leaflet-js-and-react-rendering-a-simple-map-ef9ee0498202
-- need to install npm i -D @types/leaflet to fix reWact leaflet errors and specify the type const position: [number, number]
-- For additional reference https://www.youtube.com/watch?v=jD6813wGdBA @9:20 for styling issues
-- Tutorial for React Query - https://www.youtube.com/watch?v=8K1N3fE-cDs OR https://www.youtube.com/watch?v=r8Dg0KVnfMA @11:05 devtools
-- https://medium.com/how-to-react/how-to-get-user-ip-address-in-react-js-73eb295720d0
-- https://www.youtube.com/watch?v=PmPkAAu_QF4
-- using fetch and useQUery https://rapidapi.com/guides/call-apis-react-query
-- use react hook form with ZOD https://dev.to/majiedo/using-zod-with-react-hook-form-using-typescript-1mgk
-- when a variable is undefined but you destruct - https://stackoverflow.com/questions/45210111/destructuring-nullable-objects
-- learned how to handle destructuring when a variable is undefined
-- redux toolkit with async thunk
-  - https://www.youtube.com/watch?v=I2aM7YcOXDY
-  - https://www.youtube.com/watch?v=93CR_yURoII
-- sample IP address: 192.212.174.101
+### Useful resources
 
-```js
-const {
-  ip_address,
-  gmt_offset,
-  connection: { isp_name } = { isp_name: "" }, // provide default value for isp_name when data is undefined
-} = data || {}; //default to empty object when data is undefined
-```
+- [Redux Toolkit With AsyncThunk](https://www.youtube.com/watch?v=I2aM7YcOXDY) - This helped me how to call API using Redux Toolkit
+- [React Hook Form with Zod](https://dev.to/majiedo/using-zod-with-react-hook-form-using-typescript-1mgk) - This helped me understand how to use Zod inside React Hook Form
+
+## Author
+
+- Website - [https://jowi-englis.vercel.app/](https://jowi-englis.vercel.app/)
+- Frontend Mentor - [https://www.frontendmentor.io/profile/jowix311](https://www.frontendmentor.io/profile/jowix311)

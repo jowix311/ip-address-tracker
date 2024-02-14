@@ -6,6 +6,7 @@ import { useAppSelector } from "./store/hooks";
 
 function App() {
   const {
+    isLoading,
     ipDetail: { latitude, longitude },
   } = useAppSelector((state) => state.ipDetail);
 
@@ -20,11 +21,11 @@ function App() {
           <img
             src={PatternBackgroundMobile}
             alt="background pattern"
-            className="mx-auto md:h-[280px]"
+            className="mx-auto md:h-[280px] lg:w-full"
           />
         </picture>
         <div className="relative z-0">
-          <Map position={[latitude, longitude]} />
+          {!isLoading && <Map position={[latitude, longitude]} />}
         </div>
       </div>
       <div className="absolute left-1/2 top-0  grid -translate-x-1/2 transform">
