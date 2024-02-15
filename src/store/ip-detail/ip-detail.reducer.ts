@@ -29,6 +29,7 @@ const initialState: IPDetailState = {
 export const fetchIPData = createAsyncThunk(
   "ip-detail/fetchIPData", //take note of "ip-detail/fetchIPData" where ip-detail is the slice name and fetchIPData is the action name
   async (ipAddress: string) => {
+    console.log(ipAddress);
     return axios
       .get(
         `https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${ipAddress}`,

@@ -34,7 +34,6 @@ const SearchForm = () => {
   });
 
   const onFormSubmit = (data: SearchFormSchemaType) => {
-    console.log("test testtest ", data);
     dispatch(fetchIPData(data.ipAddress));
   };
   //fetch data on first load
