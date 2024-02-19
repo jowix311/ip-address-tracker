@@ -56,6 +56,11 @@ export const IPDetailSlice = createSlice({
         state.ipDetail.longitude = action.payload.longitude;
         state.ipDetail.ispProvider = action.payload.connection.isp_name;
         state.ipDetail.timeOffset = action.payload.timezone.gmt_offset;
+      })
+      .addCase(fetchIPData.rejected, () => {
+        alert(
+          "Monthly API request for Api GEOLOCATION limit reached, Please try again next month.",
+        );
       });
   },
 });
