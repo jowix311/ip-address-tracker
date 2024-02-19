@@ -26,13 +26,16 @@ const initialState: IPDetailState = {
   },
 };
 
+//NOTE placing free API account fo reference when either of the two API keys are used up
+//https://ipgeolocation.abstractapi.com/v1/?api_key=82a273acbd334ca1b9a0a0d7d8cc5cc6&ip_address=${ipAddress}
+//https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${ipAddress}
 export const fetchIPData = createAsyncThunk(
   "ip-detail/fetchIPData", //take note of "ip-detail/fetchIPData" where ip-detail is the slice name and fetchIPData is the action name
   async (ipAddress: string) => {
     console.log(ipAddress);
     return axios
       .get(
-        `https://ipgeolocation.abstractapi.com/v1/?api_key=de0fb72673f946cf92101236820fb553&ip_address=${ipAddress}`,
+        `https://ipgeolocation.abstractapi.com/v1/?api_key=82a273acbd334ca1b9a0a0d7d8cc5cc6&ip_address=${ipAddress}`,
       )
       .then((response) => response.data);
   },
